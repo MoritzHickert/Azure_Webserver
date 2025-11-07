@@ -1,0 +1,5 @@
+Flask
+gunicorn
+azure-storage-blob
+azure-identity
+pymysql
