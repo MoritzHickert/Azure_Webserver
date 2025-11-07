@@ -13,7 +13,7 @@ APP_SECRET_KEY = os.environ.get('APP_SECRET_KEY', 'default-secret-key-change-me'
 
 # Azure-spezifische Variablen
 STORAGE_ACCOUNT_NAME = os.environ.get('STORAGE_ACCOUNT_NAME')
-CONTAINER_NAME = os.environ.get('S3_BUCKET')  # Wir verwenden den alten Variablennamen weiter
+CONTAINER_NAME = os.environ.get('CONTAINER_NAME')  # Wir verwenden den alten Variablennamen weiter
 BLOB_ACCOUNT_URL = f"https://{STORAGE_ACCOUNT_NAME}.blob.core.windows.net"
 
 app = Flask(__name__)
