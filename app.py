@@ -36,14 +36,28 @@ def get_db_connection():
 @app.route('/')
 def home():
     if 'username' in session:
-        try:
-            blob_service_client = BlobServiceClient(account_url=BLOB_ACCOUNT_URL, credential=azure_credential)
-            blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob="index.html")
-            downloader = blob_client.download_blob()
-            content = downloader.readall().decode('utf-8')
-            return content
-        except Exception as e:
-            return f"<h1>Geschützter Inhalt</h1><p>Fehler beim Laden von Azure Storage: {e}</p>"
+
+        # try:
+        #     blob_service_client = BlobServiceClient(account_url=BLOB_ACCOUNT_URL, credential=azure_credential)
+        #     blob_client = blob_service_client.get_blob_client(container=CONTAINER_NAME, blob="index.html")
+        #     downloader = blob_client.download_blob()
+        #     content = downloader.readall().decode('utf-8')
+        #     return content
+        # except Exception as e:
+        #     return f"<h1>Geschützter Inhalt</h1><p>Fehler beim Laden von Azure Storage: {e}</p>"
+
+        # temporary workaround
+        return """
+                    <html>
+                        <head><title>Testseite</title></head>
+                        <body>
+                            <h1>Willkommen! (Azure Test)</h1>
+                            <p>Die Anwendung funktioniert und die Datenbank ist verbunden.</p>
+                            <p><a href="/logout">Abmelden</a></p>
+                        </body>
+                    </html>
+                """
+
     return redirect(url_for('login'))
 
 
