@@ -1,5 +1,4 @@
 Flask
 gunicorn
-azure-storage-blob
-azure-identity
+boto3
 pymysql
